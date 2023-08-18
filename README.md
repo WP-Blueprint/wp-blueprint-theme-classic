@@ -24,7 +24,7 @@ See the [Documentation](https://wp-blueprint.dev/documentation/themes/classic/).
 
 Contributions are welcome! Feel free to open issues or submit pull requests to help improve this theme.
 
-Please follow the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/) and ensure that your changes are well-documented. Use the provided npm scripts for linting your PHP code before submitting.
+Please follow the [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/) and ensure that your changes are well-documented. Use the provided npm scripts for linting your code before submitting.
 
 ## License
 
