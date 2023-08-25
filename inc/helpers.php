@@ -24,7 +24,7 @@ if ( ! function_exists( 'dd' ) ) {
 			echo '<pre>';
 			array_map(
 				function ( $x ) {
-					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+                	// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
 					var_dump( $x );
 				},
 				func_get_args()
@@ -69,7 +69,8 @@ if ( ! function_exists( 'mix' ) ) {
 		if ( ! $manifest_directory ) {
 			$manifest_directory = 'assets/dist/';
 		}
-		static $manifest;
+		$manifest;
+
 		if ( ! starts_with( $path, '/' ) ) {
 			$path = "/{$path}";
 		}
@@ -77,24 +78,20 @@ if ( ! function_exists( 'mix' ) ) {
 			$manifest_directory = "/{$manifest_directory}";
 		}
 		$root_dir = dirname( __FILE__, 2 );
-		if ( file_exists( $root_dir . '/' . $manifest_directory . '/hot' ) ) {
-			return getenv( 'WP_SITEURL' ) . ':8080' . $path;
+
+		$manifest_path = get_active_theme_directory() . $manifest_directory . 'mix-manifest.json';
+
+		if ( ! file_exists( $manifest_path ) ) {
+			throw new Exception( 'The Mix manifest does not exist.' );
 		}
-		if ( ! $manifest ) {
-			$manifest_path = $root_dir . $manifest_directory . 'mix-manifest.json';
-			if ( ! file_exists( $manifest_path ) ) {
-				throw new Exception( 'The Mix manifest does not exist.' );
-			}
-			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-			$manifest = json_decode( file_get_contents( $manifest_path ), true );
-		}
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$manifest = json_decode( file_get_contents( $manifest_path ), true );
 
 		if ( starts_with( $manifest[ $path ], '/' ) ) {
 			$manifest[ $path ] = ltrim( $manifest[ $path ], '/' );
 		}
 
 		$path = $manifest_directory . $manifest[ $path ];
-
 		return get_active_theme_directory_uri() . $path;
 	}
 }
@@ -120,14 +117,14 @@ if ( ! function_exists( 'svg' ) ) {
 	/**
 	 * Easily point to the assets dist folder.
 	 *
-	 * @param  string $path The path to the SVG in the global dist folder.
+	 * @param  string $path The path to the SVG in the dist folder.
 	 */
 	function svg( $path ) {
 		if ( ! $path ) {
 			return;
 		}
 
-		echo esc_html( get_template_part( 'assets/dist/global/', $path . '.svg' ) );
+		echo esc_html( get_template_part( 'assets/dist/svg/inline', $path . '.svg' ) );
 	}
 }
 
@@ -139,25 +136,29 @@ if ( ! function_exists( 'get_active_theme_directory_uri' ) ) {
 	 * @return string
 	 */
 	function get_active_theme_directory_uri() {
-		// Get the directory of the file where the function is called.
-		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
-		$called_dir = dirname( debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 2 )[1]['file'] );
 
-		// Get the directories of the parent and child themes.
-		$parent_dir = get_template_directory();
-		$child_dir  = get_stylesheet_directory();
-		// phpcs:enable
-
-		if ( strpos( $called_dir, $child_dir ) === 0 ) {
-			// The function is called from the child theme.
+		if ( defined( 'IS_CHILD' ) && IS_CHILD ) {
 			return get_stylesheet_directory_uri();
-		} elseif ( strpos( $called_dir, $parent_dir ) === 0 ) {
-			// The function is called from the parent theme.
-			return get_template_directory_uri();
 		}
+		return get_template_directory_uri();
+	}
+}
 
-		// The function is called from somewhere else (plugin, mu-plugin, etc.).
-		return '';
+
+if ( ! function_exists( 'get_active_theme_directory' ) ) {
+
+	/**
+	 * Get the theme directory based on the context.
+	 *
+	 * @return string
+	 */
+	function get_active_theme_directory() {
+
+		if ( defined( 'IS_CHILD' ) && IS_CHILD ) {
+			return get_stylesheet_directory();
+
+		}
+		return get_template_directory();
 	}
 }
 
@@ -181,7 +182,7 @@ if ( ! function_exists( 'wpbp_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-			/* translators: %s: post date. */
+		/* translators: %s: post date. */
 			esc_html_x( 'Posted on %s', 'post date', 'wpblueprint' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
@@ -199,7 +200,7 @@ if ( ! function_exists( 'wpbp_posted_by' ) ) :
 	 */
 	function wpbp_posted_by() {
 		$byline = sprintf(
-			/* translators: %s: post author. */
+		/* translators: %s: post author. */
 			esc_html_x( 'by %s', 'post author', 'wpblueprint' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
@@ -238,7 +239,7 @@ if ( ! function_exists( 'wpbp_entry_footer' ) ) :
 			comments_popup_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: post title */
+					/* translators: %s: post title */
 						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'wpblueprint' ),
 						array(
 							'span' => array(
@@ -255,7 +256,7 @@ if ( ! function_exists( 'wpbp_entry_footer' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
+				/* translators: %s: Name of current post. Only visible to screen readers */
 					sprintf( '<span class="screen-reader-text">%s</span>', __( 'Edit %s', 'wpblueprint' ) ),
 					array(
 						'span' => array(
@@ -288,29 +289,29 @@ if ( ! function_exists( 'wpbp_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
+		<div class="post-thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</div><!-- .post-thumbnail -->
 
-		<?php else : ?>
+	<?php else : ?>
 
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
-					the_post_thumbnail(
-						'post-thumbnail',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
-					);
+				the_post_thumbnail(
+					'post-thumbnail',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
 				?>
-			</a>
+		</a>
 
-			<?php
-		endif; // End is_singular().
+		<?php
+	endif; // End is_singular().
 	}
 
 endif;
