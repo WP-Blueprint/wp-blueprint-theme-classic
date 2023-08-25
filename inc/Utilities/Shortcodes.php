@@ -16,7 +16,7 @@ namespace WPBlueprint\Theme\Classic\Utilities;
 class Shortcodes extends \WPBlueprint\Theme\Core\Handlers\Shortcode {
 
 	/**
-	 * Constructor: Registering shortcodes
+	 * Constructor: Registering Shortcodes.
 	 */
 	public function __construct() {
 		$shortcodes = array(

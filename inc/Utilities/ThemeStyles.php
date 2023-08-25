@@ -1,22 +1,22 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Theme Style
+ * WP Blueprint Theme Classic Utility: Theme Styles
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
- * @link    https://wp-blueprint.dev/documentation/themes/core/handlers/theme-styles/
+ * @link    https://github.com/WP-Blueprint/wp-blueprint-theme-core
  * @license https://www.gnu.org/licenses/gpl-3.0 GPL-3.0
  */
 
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the OptionsHandler in order to register theme-specific options.
+ * This class extends the Theme Style Handler in order to register Theme Styles.
  */
-class ThemeStyle extends \WPBlueprint\Theme\Core\Handlers\ThemeStyle {
+class ThemeStyle extends \WPBlueprint\Theme\Core\Handlers\ThemeStyles {
 
 	/**
-	 * Constructor: Registering options
+	 * Constructor: Registering Theme Styles.
 	 */
 	public function __construct() {
 		$colors = array(
