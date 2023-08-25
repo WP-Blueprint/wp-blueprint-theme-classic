@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Taxonomies Handler Extension
+ * WP Blueprint Theme Classic Utility: Taxonomies
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,12 +11,12 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the TaxonomyHandler in order to register Taxonomies.
+ * This class extends the Taxonomy Handler in order to register Taxonomies.
  */
 class Taxonomies extends \WPBlueprint\Theme\Core\Handlers\Taxonomy {
 
 	/**
-	 * Constructor: Registering taxonomies
+	 * Constructor: Registering Taxonomies.
 	 */
 	public function __construct() {
 		$taxonomies = array(

@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: WidgetAreas Extension
+ * WP Blueprint Theme Classic Utility: Widget Areas
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,12 +11,12 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the WidgetAreaHandler in order to register WidgetAreas.
+ * This class extends the Widget Area Handler in order to register Widget Areas.
  */
 class WidgetAreas extends \WPBlueprint\Theme\Core\Handlers\WidgetArea {
 
 	/**
-	 * Constructor: Registering widget areas
+	 * Constructor: Registering Widget Areas.
 	 */
 	public function __construct() {
 		$widget_areas = array(

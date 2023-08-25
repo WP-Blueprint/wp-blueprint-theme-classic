@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Options Handler Extension
+ * WP Blueprint Theme Classic Utility: Theme Style
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

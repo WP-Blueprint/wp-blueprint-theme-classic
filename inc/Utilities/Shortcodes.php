@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Shortcode Handler Extension
+ * WP Blueprint Theme Classic Utility: Shortcodes
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -20,11 +20,11 @@ class Shortcodes extends \WPBlueprint\Theme\Core\Handlers\Shortcode {
 	 */
 	public function __construct() {
 		$shortcodes = array(
-
 			array(
-				'tag'      => 'copyright',
-				'callback' => array( $this, 'copyright_callback' ),
+				'copyright',
+				array( $this, 'copyright_callback' ),
 			),
+
 			// Define the Shortcodes here.
 
 		);

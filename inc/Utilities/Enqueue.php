@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Enqueue Handler Extension
+ * WP Blueprint Theme Classic Utility: Enqueue
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,12 +11,12 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the EnqueueHandler in order to EnqueueHandler new Script and Styles.
+ * This class extends the Enqueue Handler in order to Enqueue new Script and Styles.
  */
 class Enqueue extends \WPBlueprint\Theme\Core\Handlers\Enqueue {
 
 	/**
-	 * Constructor: Enqueueing styles and scripts.
+	 * Constructor: Registering Enqueue.
 	 */
 	public function __construct() {
 

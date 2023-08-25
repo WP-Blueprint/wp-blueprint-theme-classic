@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Patterns Handler Extension
+ * WP Blueprint Theme Classic Utility: Patterns
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,23 +11,23 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the PatternHandler in order to register Patterns.
+ * This class extends the Pattern in order to register Patterns and Pattern Categories.
  */
 class Patterns extends \WPBlueprint\Theme\Core\Handlers\Pattern {
 
 	/**
-	 * Constructor: Registering patterns
+	 * Constructor: Registering Patterns and Pattern Categories.
 	 */
 	public function __construct() {
 		$patterns = array(
 			// Define the Patterns here.
-
 		);
 
 		$categories = array(
-			// Define the Patterns Categories here.
+			// Define the Pattern Categories here.
 		);
 
 		parent::set_patterns( $patterns );
+		parent::set_categories( $categories );
 	}
 }

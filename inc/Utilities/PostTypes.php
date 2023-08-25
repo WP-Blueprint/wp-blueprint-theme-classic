@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Posttypes Handler Extension
+ * WP Blueprint Theme Classic Utility: Post Types
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,16 +11,16 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the PosttypeHandler in order to register Posttypes.
+ * This class extends the Post Type Handler in order to register Post Types.
  */
 class PostTypes extends \WPBlueprint\Theme\Core\Handlers\PostType {
 
 	/**
-	 * Constructor: Registering posttypes
+	 * Constructor: Registering Post Types.
 	 */
 	public function __construct() {
 		$posttypes = array(
-			// Define the Posttypes here.
+			// Define the Post Types here.
 		);
 
 		parent::set_posttypes( $posttypes );

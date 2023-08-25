@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Navigation Handler Extension
+ * WP Blueprint Theme Classic Utility: Navigations
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,16 +11,17 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the NavigationHandler in order to register Navigations.
+ * This class extends the Navigation Handler in order to register Navigations.
  */
 class Navigations extends \WPBlueprint\Theme\Core\Handlers\Navigation {
 
 	/**
-	 * Constructor: Registering navigations
+	 * Constructor: Registering Navigations.
 	 */
 	public function __construct() {
 		$navigations = array(
-			// Define the Navigation here.
+			'primary_menu' => __( 'Primary Menu', 'wpblueprint' ),
+			'footer_menu'  => __( 'Footer Menu', 'wpblueprint' ),
 		);
 
 		parent::set_navigations( $navigations );

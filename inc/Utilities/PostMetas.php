@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Custom Post Meta
+ * WP Blueprint Theme Classic Utility: Post Metas
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,14 +11,12 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class handles custom post meta fields for the theme.
+ * This class extends the Post Meta Handler in order to register Post Metas.
  */
 class PostMetas extends \WPBlueprint\Theme\Core\Handlers\PostMeta {
 
 	/**
-	 * Registers the custom post meta fields.
-	 *
-	 * @return void
+	 * Constructor: Registering Post Metas.
 	 */
 	public function __construct() {
 		$post_meta_fields = array(

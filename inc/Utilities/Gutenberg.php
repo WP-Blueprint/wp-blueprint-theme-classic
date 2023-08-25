@@ -1,6 +1,6 @@
 <?php
 /**
- * WPBlueprint Theme Classic Handler: Gutenberg Handler Extension
+ * WP Blueprint Theme Classic Utility: Gutenberg
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,12 +11,12 @@
 namespace WPBlueprint\Theme\Classic\Utilities;
 
 /**
- * This class extends the GutenbergHandler in order to register Gutenberg Items.
+ * This class extends the Gutenberg Handler in order to register Gutenberg Items.
  */
 class Gutenberg extends \WPBlueprint\Theme\Core\Handlers\Gutenberg {
 
 	/**
-	 * Constructor: Registering gutenberg
+	 * Constructor: Registering Gutenberg Items.
 	 */
 	public function __construct() {
 		$blocks = array(

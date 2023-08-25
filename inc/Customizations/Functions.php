@@ -1,6 +1,6 @@
 <?php
 /**
- * WP-Blueprint: Theme Customizations
+ * WP Blueprint: Theme Functions
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
@@ -11,7 +11,10 @@
 namespace WPBlueprint\Theme\Classic\Customizations;
 
 /**
- * This class extends the OptionsHandler in order to register theme-specific options.
+ * This class manages various theme customizations and utility functions.
+ *
+ * It handles functionality like modifying theme supports, managing custom image sizes,
+ * updating archive titles, adjusting excerpt lengths, and adding custom mime types among other tasks.
  */
 class Functions {
 
@@ -19,7 +22,10 @@ class Functions {
 	private const DEVELOPMENT_NAME = 'WP Blueprint';
 
 	/**
-	 * Constructor: Registering options
+	 * Constructor method. It initializes and adds the required theme supports, image sizes, and filters.
+	 *
+	 * Various `add_theme_support`, `add_image_size`, and `add_filter` calls are made in this method to
+	 * bootstrap the theme's features and custom functionalities.
 	 */
 	public function __construct() {
 
