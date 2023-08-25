@@ -1,4 +1,4 @@
-# WP Blueprint Classic Theme
+# WP Blueprint Theme Classic
 
 [![Downloads](https://img.shields.io/packagist/dt/wp-blueprint/theme-classic)](https://packagist.org/packages/wp-blueprint/theme-classic) [![CI](https://github.com/WP-Blueprint/wp-blueprint-theme-classic/actions/workflows/lint.yml/badge.svg)](https://github.com/WP-Blueprint/wp-blueprint-theme-classic/actions/workflows/lint.yml)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Widget Areas
+ * WP Blueprint Utility: Widget Areas
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

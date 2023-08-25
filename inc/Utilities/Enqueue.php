@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Enqueue
+ * WP Blueprint Utility: Enqueue
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

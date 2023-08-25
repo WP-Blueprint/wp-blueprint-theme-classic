@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Navigations
+ * WP Blueprint Utility: Navigations
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

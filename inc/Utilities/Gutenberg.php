@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Gutenberg
+ * WP Blueprint Utility: Gutenberg
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

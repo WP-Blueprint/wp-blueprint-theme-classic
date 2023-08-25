@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Theme Styles
+ * WP Blueprint Utility: Theme Styles
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

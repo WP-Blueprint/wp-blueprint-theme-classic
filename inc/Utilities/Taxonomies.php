@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Taxonomies
+ * WP Blueprint Utility: Taxonomies
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic

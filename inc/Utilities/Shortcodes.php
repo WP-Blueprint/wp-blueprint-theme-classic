@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Blueprint Theme Classic Utility: Shortcodes
+ * WP Blueprint Utility: Shortcodes
  *
  * @since   1.0
  * @package wp-blueprint/theme-classic
